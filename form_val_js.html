@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<head>
+	<!-- ¿ que es UTF-8 ? -->
+	<meta charset="UTF-8">
+	
+	<script type="text/javascript">
+	
+const emailValido = email => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function validar(f){
+    var ok = true;
+	var patron = new RegExp ("[A-Z]");
+	var nn = f.nombre.value;
+	var res = patron.test(nn);
+
+    var msg = "Debes escribir contenido en los campos:\n";
+	
+	if(nn.length>5) { 
+			alert("El tamaño maximo es de 5 caracteres");
+		   ok=false;
+		}
+
+	if (nn===""){
+		   alert("Tiene que escribir su nombre");
+		   ok=false;
+           
+	} else {
+		
+		
+		if(res==false){	alert("Debe escribir con Mayusculas"); ok=false;}	
+	
+	}
+
+	if (!emailValido(f.email.value)) {
+    	alert("Por favor, escribe un correo electrónico válido");
+    	f.email.focus();
+    	return false;
+  }
+
+    if(ok == false)
+    alert(msg);
+  return ok;
+}
+	</script>
+</head>
+
+<html>
+
+<body>
+
+	<h1> Formulario Datos Personaless</h1>
+ 
+  <!-- https://www.w3schools.com/-->
+
+	<form name="formjs" method = "post" action = "post2.php" onsubmit="return validar(this)">
+		Nombre:  <input type = "text" name = "nombre">
+		<br><br>
+
+		Apellido Paterno   : <input type = "text" name = "paterno" required >
+		<br><br>
+
+		Dirección           : <input type = "text" name = "direccion" required>
+		<br><br>
+
+		Fecha de Nacimiento : <input type="date"  name = "fechanac" min="1900-01-01" max="2024-01-01">
+		<br><br>
+
+		 <label for="lugares">Departamento:</label>
+
+		<select name="deptos" id="deptos">
+		  <option value="1">La Paz</option>
+		  <option value="2">Santa Cruz</option>
+		  <option value="3">Cochabamba</option>
+		  <option value="4">Tarija</option>
+		</select> 
+		<br><br>
+
+		C.I. : <input type = "number" name = "ci">
+		<br><br>
+
+		Email :<input type = "email" name = "email">
+		<br><br>
+
+		<input type = "submit" id="aceptar" value="send">
+	</form>
+</body>
+
+</html>
