@@ -8,6 +8,7 @@
     $age = $_POST['age'];*/
     $email =$_POST['email'];
     $fecha = $_POST['date'];
+    echo "ok";
     if (empty($name)) 
         echo "Please enter name";
     /*elseif(empty($age))
