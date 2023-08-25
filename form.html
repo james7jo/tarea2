@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		
+		<script type="text/javascript">
+				function validar(f)
+				{
+					var ok = true;
+					var msg= "debe completar la validacion de los campos"
+					if (f.apellido.value==""){
+						alert ("debe ingresar el apellido");
+						ok = false
+					}
+					if (ok==false)  alert(msg)
+					
+					return ok;
+				}
+		</script>
+		<link rel="stylesheet" href="./stilo.css">
+	</head>	
+		<title>Formulario</title>
+	  
+<body>
+	<h2>Formulario</h2>
+	<form method = "post" action = "post.php" onsubmit="return validar(this)">
+		Nombre : <input type = "text" name = "name" required minlength="2" maxlength="5">
+		<br><br>
+
+		Apellido : <input type = "text" name = "name" required minlength="2" maxlength="5">
+		<br><br>
+
+		Dirección : <input type = "text" name = "Dirección" >
+		<br><br>
+
+		Edad : <input type = "number" name = "age" required min="0" max="150">
+		<br><br>
+
+		Email : <input type = "email" name = "email" required>
+		<br><br>
+
+		Fecha de Nacimiento : <input type = "date" name = "date" required value="1900-01-01" min="1900-01-01" max="2230-12-30">
+		<br><br>
+
+		<input type = "submit">
+	</form>
+</body>
+
+</html>

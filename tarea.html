@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript">
+			function validarTelefono(input) {
+  			var telefono = input.value;
+  			var patron = /^591-[0-9]+$/; 
+ 			 if (patron.test(telefono)) {
+ 			   input.setCustomValidity('');
+ 			 } else {
+  				  input.setCustomValidity('Formato de teléfono incorrecto. Use el formato: 591-número');
+  			}
+			}
+			function validarMayusculas(input) {
+ 				 var valor = input.value;
+ 				 if (valor == valor.toUpperCase()) {
+    				input.setCustomValidity(''); // Valor válido, no hay mensaje de error
+  				} 
+				else {
+    				input.setCustomValidity('Ingrese solo letras mayúsculas.');
+  				}
+			}
+				function validar(f)
+				{
+					var ok = true;
+					var msg= "debe completar la validacion de los campos"
+					if (f.apellido.value==""){
+						alert ("debe ingresar el apellido");
+						ok = false
+					}
+					if (ok==false)  alert(msg)
+					
+					return ok;
+				}
+		</script>
+		<link rel="stylesheet" href="./stilo.css">
+	</head>	
+		<title>Formulario</title>
+	  
+<body>
+	<h2>Formulario</h2>
+	<form method = "post" action = "post.php" onsubmit="return validar(this)">
+		Nombre : <input type = "text" name = "name" required minlength="4" maxlength="50" oninput="validarMayusculas(this)">
+		<br><br>
+		
+		Apellido Paterno : <input type = "text" apellido_paterno = "apellido_paterno" required minlength="4" maxlength="50" oninput="validarMayusculas(this)">
+		<br><br>
+
+		Apellido Materno : <input type = "text" apellido_materno = "apellido_materno" required minlength="4" maxlength="50" oninput="validarMayusculas(this)">
+		<br><br>
+
+		Direccion : <input type = "text" direccion = "Direccion" required maxlength="100" oninput="validarMayusculas(this)">
+		<br><br>
+
+		Fecha de Nacimiento : <input type = "date" fecha = "date" required value="1900-01-01" min="1900-01-01">
+		<br><br>
+
+		telefono : <input type="text" id="telefono" name="phone">
+ 		<br><br>
+
+		celular : <input type="text" id="celular" name="celular" oninput="validarTelefono(this)" required>
+ 		<br><br>
+
+		<label for="lugarNacimiento">Lugar de Nacimiento: </label>
+		   <select id="lugarNacimiento" name="birthplace" required>
+		   <option value="" disabled selected>Selecciona un lugar</option>
+		   <option value="La Paz">La Paz</option>
+		   <option value="Cochabamba">Cochabamba</option>
+		   <option value="Santa Cruz">Santa Cruz</option>
+		   <option value="Oruro">Oruro</option>
+		   <option value="Potosí">Potosí</option>
+		   <option value="Tarija">Tarija</option>
+		   <option value="Chuquisaca">Chuquisaca</option>
+		   <option value="Beni">Beni</option>
+		   <option value="Pando">Pando</option>
+		 </select>
+		 <br><br>
+
+		 pais: <select id="pais" name="birthplace" required>
+		   <option value="" disabled selected>Selecciona un pais</option>
+		   <option value="La Paz">bolivia</option>
+		   <option value="Cochabamba">uruguay</option>
+		   <option value="Santa Cruz">paraguay</option>
+		   <option value="Oruro">argentina</option>
+		   <option value="Potosí">brasil</option>
+		   <option value="Tarija">peru</option>
+		   <option value="Chuquisaca">ecuador</option>
+		   <option value="Beni">colombia</option>
+		   <option value="Pando">venezuela</option>
+		 </select>
+		 <br><br>
+
+		Email : <input type = "email" name = "email" required>
+		<br><br>
+		
+		carrera: <select id="carrera" name="birthplace" required>
+			<option value="" disabled selected>Selecciona una carrera</option>
+			<option value="La Paz">ingenieria de sistemas</option>
+			<option value="Cochabamba">medicina</option>
+			<option value="Santa Cruz">diseño grafico</option>
+			<option value="Oruro">odontologia</option>
+			<option value="Potosí">administracion de empresas</option>
+			<option value="Tarija">ingenieria comercial</option>
+			<option value="Chuquisaca">derecho</option>
+			<option value="Beni">psicologia</option>
+		  </select>
+		  <br><br>
+
+		
+
+		<input type = "submit">
+	</form>
+</body>
+
+</html>

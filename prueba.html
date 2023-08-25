@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validación de Mayúsculas en Nombre</title>
+<script>
+function validarMayusculas(input) {
+  var valor = input.value;
+  if (valor === valor.toUpperCase()) {
+    input.setCustomValidity(''); // Valor válido, no hay mensaje de error
+  } else {
+    input.setCustomValidity('Ingrese solo letras mayúsculas.');
+  }
+}
+
+// Limpiar el mensaje de error al corregir el campo
+function limpiarError(input) {
+  input.setCustomValidity('');
+}
+</script>
+</head>
+<body>
+<form>
+  <label for="nombre">Nombre (solo mayúsculas): </label>
+  <input type="text" id="nombre" name="name" 
+         oninput="validarMayusculas(this)" 
+         onfocus="limpiarError(this)" 
+         required 
+         minlength="5" 
+         maxlength="50">
+  <br><br>
+  <button type="submit">Enviar</button>
+</form>
+</body>
+</html>
+
+
+
